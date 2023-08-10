@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% for cpu in cpus %}
+		<div class="container">
+			<h1>Name: {{ cpu.name }}</h1>
+			<p>Purchased by {{ cpu.purchased_by.title() }}</p>
+		</div>
+	{% endfor %}
+{% endblock content %}
