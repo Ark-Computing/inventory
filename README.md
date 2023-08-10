@@ -1,1 +1,1 @@
-# Test blog app
+# Ark Computing Inventory app
