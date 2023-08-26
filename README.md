@@ -6,4 +6,4 @@ The license for this project is undetermined. At the moment, the copyright for t
 
 This project is open source, however, without explicit permission from Blake Nall, this project may not be reproduced or mutated in anyway.
 
-(c) Blake Nall. All rights reserved.
+(c) Blake Nall 2023. All rights reserved.
