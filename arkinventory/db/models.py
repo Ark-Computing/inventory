@@ -5,13 +5,21 @@ db = SQLAlchemy()
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
 db.init_app(app)
 
+class Report(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    datetime = db.Column(db.DateTime, unique=False, nullable=True)
+    start_date = db.Column(db.String(12), unique=False, nullable=False)
+    end_date = db.Column(db.String(12), unique=False, nullable=False)
+    prices = db.relationship('Build', back_populates='build')
+
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True) 
     username = db.Column(db.String(12), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), unique=False, nullable=False)
     profile_picture = db.Column(db.String(20), unique=False, nullable=False)
+    dash_state = db.Column(db.String(20), unique=False, nullable=True)
 
 
 class Manufacturer(db.Model):

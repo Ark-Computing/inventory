@@ -1,3 +1,0 @@
-from arkinventory import app
-
-

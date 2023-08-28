@@ -1,10 +1,10 @@
 from flask import Flask
-
+from flask_sqlalchemy import SQLAlchemy
+from arkinventory.models import *
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "0rwJ[>!?9fCh<yAexQt%h>7WJqA;16p?Qd08TfqnzhfKuzJ(uHC.Xg?d6czXM0Fh"
+db = SQLAlchemy()
+db.init_app(app)
 
-@app.route('/')
-def home():
-    return "God I do not want to implement routing."
-
+with app.app_context():
+    db.create_all()
