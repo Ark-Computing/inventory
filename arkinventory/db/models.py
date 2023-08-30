@@ -1,9 +1,4 @@
-from arkinventory import app
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
-db.init_app(app)
+from .database import db
 
 class Report(db.Model):
     id = db.Column(db.Integer, primary_key=True)
