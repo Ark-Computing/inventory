@@ -1,4 +1,13 @@
 from .database import db
+import random
+import os
+
+default_pfps_list = os.listdir(os.path.abspath('../../static/default_pfps'))
+
+if len(default_pfps_list) > 0:
+    default_pfp = random.choice(default_pfps_list)
+else:
+    default_pfp = '../../static/default_pfps/default_red_circle.svg'
 
 class Report(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -13,7 +22,8 @@ class User(db.Model):
     username = db.Column(db.String(12), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), unique=False, nullable=False)
-    profile_picture = db.Column(db.String(20), unique=False, nullable=False)
+    profile_picture = db.Column(db.String(20), unique=False, nullable=False, default=default_pfp)
+    created_at = db.Column(db.String(20), unique=False, nullable=True)
     dash_state = db.Column(db.String(20), unique=False, nullable=True)
 
 
