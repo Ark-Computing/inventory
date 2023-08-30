@@ -1,5 +1,7 @@
-from arkinventory import app, db
+from flask import Blueprint, render_template
 
-@app.route('/')
+client_bp = Blueprint('client', __name__)
+
+@client_bp.route('/')
 def home():
-    return "Test"
+    return render_template('layout.html')
