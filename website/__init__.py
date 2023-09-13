@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from .db.database import db
 import os
 
@@ -10,7 +9,7 @@ def create_app():
 
     db.init_app(app)
 
-    from arkinventory.client.routes import client_bp
+    from .client.routes import client_bp
     app.register_blueprint(client_bp, url_prefix='')
 
     with app.app_context():
