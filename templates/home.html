@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Purchased By</th>
+      <th scope="col">Date Purchased</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in items %}
+     <tr>
+      <th scope="row">{{ i.index }}</th>
+      <td>{{ i.name.title() }}</td>
+      <td>{{ i.price }}</td>
+      <td>{{ i.purchased_by.title() }}</td>
+      <td>{{ i.dop }}</td>
+     </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}

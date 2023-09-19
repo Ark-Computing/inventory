@@ -1,9 +1,4 @@
-from arkinventory import app
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
-db.init_app(app)
+from website import db
 
 class Report(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,7 +9,7 @@ class Report(db.Model):
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True) 
+    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(12), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), unique=False, nullable=False)
@@ -143,5 +138,3 @@ class PartPsu(db.Model):
     manufacturer_id = db.Column(db.Integer, db.ForeignKey('manufacturer.id'))
     build = db.relationship('Build', back_populates='part_psu', lazy=True, nullable=True)
     manufacturer = db.relationship('Manufacturer', back_populates='part_psu', lazy=True, nullable=False)
-
-
